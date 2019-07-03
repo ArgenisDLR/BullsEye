@@ -14,12 +14,15 @@ class ViewController: UIViewController {
   var targetValue: Int = 0
   
   @IBOutlet weak var slider: UISlider!
-
+  
+  @IBOutlet weak var targetLabel: UILabel!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
     currentValue = Int()
     targetValue = Int.random(in: 1...100)
+    startNewRound()
   }
   
   @IBAction func showAlert() {
@@ -34,6 +37,8 @@ class ViewController: UIViewController {
     
     present(alert, animated: true, completion: nil)
     
+    startNewRound()
+    
   }
   
   @IBAction func slider(_ slider: UISlider) {
@@ -46,6 +51,11 @@ class ViewController: UIViewController {
     targetValue = Int.random(in: 1...100)
     currentValue = 50
     slider.value = Float(currentValue)
+    updateLabels()
+  }
+  
+  func updateLabels() {
+    targetLabel.text = String(targetValue)
   }
 
 }
