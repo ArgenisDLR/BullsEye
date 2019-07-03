@@ -18,6 +18,8 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var targetLabel: UILabel!
   
+  @IBOutlet weak var totalScoreLabel: UILabel!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -59,10 +61,12 @@ class ViewController: UIViewController {
     currentValue = 50
     slider.value = Float(currentValue)
     updateLabels()
+    
   }
   
   func updateLabels() {
     targetLabel.text = String(targetValue)
+    totalScoreLabel.text = String(score)
   }
 
 }
